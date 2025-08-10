@@ -17,6 +17,21 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 
 
+
+# You need to:
+
+# Install Trivy CLI on the Jenkins agent/executor**
+
+# If Jenkins runs directly on the EC2 host, install Trivy there (using the commands I gave before).
+
+# If Jenkins runs inside a Docker container, you’ll need to rebuild that container with Trivy installed.
+
+
+#############
+RHEL based 
+
+#########
+
 # Trivy installation
 cat << EOF | sudo tee -a /etc/yum.repos.d/trivy.repo
 [trivy]
@@ -30,6 +45,10 @@ sudo yum -y update
 sudo yum -y install trivy
 
 
+#############
+RHEL based 
+
+#########
 
 # sudo yum update -y
 
@@ -43,6 +62,19 @@ sudo yum -y install trivy
 
 # # 4. Test installation
 # trivy --version
+
+
+#############
+Ubuntu based 
+
+#########
+# install trivy
+sudo apt-get install wget apt-transport-https gnupg lsb-release
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update
+sudo apt-get install trivy
+
 
 
 git clone https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git
