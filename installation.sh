@@ -146,7 +146,8 @@ aws --version
 
 ##################
 
-Sonarqube scanner:-
+# Sonarqube scanner on separate server:-
+####################
 
 # Download SonarQube Community Edition (latest stable)
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.1.0.73491.zip
@@ -161,6 +162,42 @@ sudo mv sonarqube-10.1.0.73491 /opt/sonarqube
 sudo useradd sonar
 sudo chown -R sonar:sonar /opt/sonarqube
 
+# Edit the sonar.sh script file and set RUN_AS_USER as "sonar" user
+sudo vi /opt/sonarqube/bin/linux-x86-64/sonar.sh
+
+
+# Configure Systemd service
+sudo vi /etc/systemd/system/sonar.service
+
+
+Add the below lines, then save and close the file:-
+
+[Unit] 
+Description=SonarQube service 
+After=syslog.target network.target 
+[Service] 
+Type=forking 
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start 
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop 
+User=sonar 
+Group=sonar 
+Restart=always 
+[Install] 
+WantedBy=multi-user.target
+
+
+Restart the daemon services to load the sonar service.
+
+sudo systemctl daemon-reload
+
+
+# Now Start and enable the Sonarqube service to automatically run
+sudo systemctl start sonar
+sudo systemctl status sonar
+
+
+Below is alternative to start & status Sonarqube without setting systemd service :-
+
 # Start SonarQube server as sonar user
 sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh start
 
@@ -169,7 +206,9 @@ sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh status
 
 
 
-
+####################
+# Install SonarQube Scanner CLI on your Jenkins Agent 
+####################
 
 
 git clone https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git
