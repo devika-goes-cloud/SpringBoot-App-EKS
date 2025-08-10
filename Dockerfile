@@ -26,8 +26,8 @@ ENTRYPOINT ["java", "-jar", "target/springboot-0.0.1-SNAPSHOT.jar"]
 # # Stage 1 - Build
 # FROM maven:3.8.8-eclipse-temurin-17 AS build
 # WORKDIR /app
-# COPY pom.xml .
-# COPY . .
+# COPY pom.xml ./
+# COPY src ./src
 # RUN mvn clean package -DskipTests
 
 
@@ -37,4 +37,6 @@ ENTRYPOINT ["java", "-jar", "target/springboot-0.0.1-SNAPSHOT.jar"]
 # COPY --from=build /app/target/springbootapp-0.0.1-SNAPSHOT.jar app.jar
 # Expose port 8080
 # EXPOSE 8080
+
+# Run the application
 # ENTRYPOINT ["java", "-jar", "app.jar"]
