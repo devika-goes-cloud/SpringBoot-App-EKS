@@ -143,6 +143,35 @@ aws --version
 
 
 
+
+##################
+
+Sonarqube scanner:-
+
+# Download SonarQube Community Edition (latest stable)
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.1.0.73491.zip
+
+# Unzip
+unzip sonarqube-10.1.0.73491.zip
+
+# Move to /opt
+sudo mv sonarqube-10.1.0.73491 /opt/sonarqube
+
+# Switch to sonarqube user (create if not exists)
+sudo useradd sonar
+sudo chown -R sonar:sonar /opt/sonarqube
+
+# Start SonarQube server as sonar user
+sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh start
+
+# Check status
+sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh status
+
+
+
+
+
+
 git clone https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git
 
 cd SpringBoot-App-EKS
