@@ -51,4 +51,13 @@ Run the Docker Container:
 
         docker run -p 8080:8080 sendevops:latest
 
+
+
+## Create EKS Cluster with two worker nodes using eksctl
+
+<img width="1491" height="1006" alt="springboot_eks" src="https://github.com/user-attachments/assets/e28e4adb-4cbd-4b00-ad74-e611195d8fa8" />
+
+
+## Delete EKS Cluster using eksctl
+
         
