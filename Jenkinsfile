@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Fir3eye/springboot-demo.git'
+                git branch: 'main', url: 'https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git'
             }
         }
         stage('Compile') {
