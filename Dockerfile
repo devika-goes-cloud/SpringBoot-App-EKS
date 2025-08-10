@@ -17,7 +17,7 @@ RUN mvn clean package
 EXPOSE 8080
 
 # Command to run the JAR file
-ENTRYPOINT ["java", "-jar", "target/sendevops-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "target/springboot-0.0.1-SNAPSHOT.jar"]
 
 
 
