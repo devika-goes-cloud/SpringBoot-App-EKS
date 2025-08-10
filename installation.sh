@@ -205,10 +205,48 @@ sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh start
 sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh status
 
 
+Access SonarQube:-
+
+http://server_IP:9000
+
+
 
 ####################
 # Install SonarQube Scanner CLI on your Jenkins Agent 
 ####################
+
+# Download the latest SonarQube Scanner CLI
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
+
+# Unzip it
+unzip sonar-scanner-cli-4.8.0.2856-linux.zip
+
+# Move to /opt for example
+sudo mv sonar-scanner-4.8.0.2856-linux /opt/sonar-scanner
+
+# Add sonar-scanner to PATH by creating a file in .bash_profile
+vi ~/.bash_profile
+
+
+#Then add this line somewhere (usually at the end):
+
+export PATH=$PATH:/opt/sonar-scanner/bin
+
+
+#Save and exit. Then reload it with:
+source ~/.bash_profile
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 git clone https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git
