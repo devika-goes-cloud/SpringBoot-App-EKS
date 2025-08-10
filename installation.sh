@@ -34,6 +34,14 @@ docker ps
 # cat /var/jenkins_home/secrets/initialAdminPassword
 
 
+##############################
+Maven installation: 
+###############################
+cd /opt
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+sudo tar -xzf apache-maven-3.9.10-bin.tar.gz
+sudo mv apache-maven-3.9.10 maven
+
 
 
 # You need to:
@@ -46,7 +54,7 @@ docker ps
 
 
 #############
-RHEL based 
+RHEL based  - Trivy
 
 #########
 
@@ -64,7 +72,7 @@ sudo yum -y install trivy
 
 
 #############
-RHEL based 
+RHEL based Trivy
 
 #########
 
@@ -83,7 +91,7 @@ RHEL based
 
 
 #############
-Ubuntu based 
+Ubuntu based Trivy
 
 #########
 # install trivy
