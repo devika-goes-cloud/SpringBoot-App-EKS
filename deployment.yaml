@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: springboot-app
-        image: devika12345/springboot1:latest
+        image: devika12345/springboot:v1
         ports:
         - containerPort: 8080
 
