@@ -145,3 +145,7 @@ aws --version
 
 git clone https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git
 
+cd SpringBoot-App-EKS
+
+
+
