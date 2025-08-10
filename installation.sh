@@ -31,6 +31,18 @@ sudo yum -y install trivy
 
 
 
+# sudo yum update -y
+
+# # 2. Add Trivy repository
+# sudo rpm --import https://aquasecurity.github.io/trivy-repo/rpm-public.gpg
+# sudo curl -fsSL https://aquasecurity.github.io/trivy-repo/rpm/amzn2/aquasecurity-trivy.repo \
+#     -o /etc/yum.repos.d/aquasecurity-trivy.repo
+
+# # 3. Install Trivy
+# sudo yum install trivy -y
+
+# # 4. Test installation
+# trivy --version
 
 
 git clone https://github.com/devika-goes-cloud/SpringBoot-App-EKS.git
