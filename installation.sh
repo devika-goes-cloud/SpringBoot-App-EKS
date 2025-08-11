@@ -224,6 +224,37 @@ source ~/.bash_profile
 
 
 
+####################
+# Install Nexus 
+####################
+
+cd /opt
+sudo wget https://download.sonatype.com/nexus/3/nexus-3.82.0-08-linux-x86_64.tar.gz
+
+sudo tar -xzf nexus-3.82.0-08-linux-x86_64.tar.gz
+sudo mv nexus-3.82.0-08 nexus
+sudo rm -f nexus-3.82.0-08-linux-x86_64.tar.gz
+
+sudo useradd nexus
+sudo chown -R nexus:nexus /opt/nexus
+sudo chown -R nexus:nexus /opt/sonatype-work
+
+
+
+sudo vi /opt/nexus/bin/nexus.rc
+
+
+# Add:
+	
+# 	run_as_user="nexus"
+
+su - nexus
+
+cd /opt/nexus/bin 
+
+./nexus start
+./nexus status
+
 
 
 
