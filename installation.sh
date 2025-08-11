@@ -248,7 +248,7 @@ sudo vi /opt/nexus/bin/nexus.rc
 	
 # 	run_as_user="nexus"
 
-su - nexus
+sudo su - nexus
 
 cd /opt/nexus/bin 
 
