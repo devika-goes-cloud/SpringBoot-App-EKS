@@ -32,7 +32,7 @@ Run the Docker Container:
 <img width="1917" height="915" alt="Jenkins_build_cicd" src="https://github.com/user-attachments/assets/74be3823-95c9-46c0-9014-eea72ef3dc2a" />
 
 
-**Declarative Tool Install:** Setup of necessary tools and environment preparation.  
+- **Declarative Tool Install:** Setup of necessary tools and environment preparation.  
 - **Git Checkout:** Fetches the latest code from the GitHub repository.  
 - **Compile:** Compiles the Spring Boot application source code.  
 - **Docker Build and Tag:** Builds the Docker image and tags it appropriately.  
