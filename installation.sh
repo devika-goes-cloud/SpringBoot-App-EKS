@@ -89,7 +89,7 @@ sudo apt-get install trivy
 
 
 ##########################
-# Install kubectl:-
+# Install kubectl:-   # Here always make note that whatever your EKS cluster version is equal to (matching) Kubectl version -> good for Production ( if EKS 1.30 = Kubectl 1.30 )
 #######################
 
 # Download the latest release binary
