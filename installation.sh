@@ -134,6 +134,10 @@ aws --version
 # Sonarqube scanner on separate server:-
 ####################
 
+# ensure Java is already installed on this agnet server else install :
+sudo yum install java-17-amazon-corretto -y
+sudo yum install jenkins -y
+
 # Download SonarQube Community Edition (latest stable)
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.1.0.73491.zip
 
