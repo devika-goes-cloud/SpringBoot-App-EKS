@@ -1,5 +1,6 @@
 sudo apt update -y
 sudo apt install openjdk-17-jdk -y
+sudo apt install git -y
 
 
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
@@ -12,3 +13,6 @@ sudo apt-get install jenkins
 
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+
+
+
