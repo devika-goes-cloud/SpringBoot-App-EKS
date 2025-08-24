@@ -15,4 +15,4 @@ sudo systemctl start jenkins
 sudo systemctl enable jenkins
 
 
-
+sudo apt install maven -y
