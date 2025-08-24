@@ -18,6 +18,19 @@ sudo systemctl enable jenkins
 sudo apt install maven -y
 
 
+
+########
+Docker Installation:
+##################
+
+
+sudo apt install docker.io -y
+sudo systemctl enable docker
+sudo systemctl start docker
+docker --version
+sudo docker version
+sudo docker --version
+
 #############
 UBUNTU based  - Trivy
 
