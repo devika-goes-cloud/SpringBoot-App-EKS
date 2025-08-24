@@ -9,7 +9,7 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
-sudo apt-get install jenkins
+sudo apt-get install jenkins -y
 
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
