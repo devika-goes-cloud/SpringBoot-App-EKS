@@ -41,3 +41,45 @@ echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.
 sudo apt-get update
 sudo apt-get install trivy
 
+
+
+
+
+
+###################
+# Install kubectl:-   
+#######################
+
+# Download the latest release binary
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# Make the binary executable
+chmod +x kubectl
+
+# Move it to a directory in your PATH
+sudo mv kubectl /usr/local/bin/
+
+# Verify installation
+kubectl version --client
+
+##########################
+# Install eksctl:-  # NOTE: Always use the latest EKSCTL ( good practice so you get latest features for cli )
+#######################
+
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+# Move the binary to /usr/local/bin
+sudo mv /tmp/eksctl /usr/local/bin
+
+# Check version
+eksctl version
+
+
+
+##########################
+# Install aws cli:-
+#######################
+
+sudo yum install awscli -y
+
+aws --version
+
