@@ -48,19 +48,19 @@ pipeline {
         }
         stage('Docker build and tag') {
             steps {
-                sh "docker build -t devika12345/springboot1:latest ."
+                sh "docker build -t devika12345/springboot:v1-stable ."
             }
         }
         stage('Trivy image Scan') {
             steps {
-                sh "trivy image devika12345/springboot1:latest --format table -o image.html"
+                sh "trivy image devika12345/springboot:v1-stable --format table -o image.html"
             }
         }
         stage('Docker Push Image') {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'dockerhub') {
-                        sh "docker push devika12345/springboot1:latest"
+                        sh "docker push devika12345/springboot:v1-stable"
                   }
                 }
             }
