@@ -26,6 +26,7 @@ pipeline {
         stage('Trivy FS Scan') {
             steps {
                 sh "trivy fs --format table -o fs.html . "
+                archiveArtifacts 'fs.html'
             }
         }
         stage('Build') {
@@ -61,6 +62,7 @@ pipeline {
         stage('Trivy image Scan') {
             steps {
                 sh "trivy image devika12345/springboot:v1-stable --format table -o image.html"
+                archiveArtifacts 'image.html'
             }
         }
         stage('Docker Push Image') {
@@ -75,7 +77,7 @@ pipeline {
         stage('Deploy to kubernets') {
             steps {
                 script {
-                    withKubeConfig(caCertificate: '', clusterName: 'EKS_CLOUD', contextName: '', credentialsId: 'k8s', namespace: 'default', restrictKubeConfigAccess: false, serverUrl: 'https://B18E12BF81A02624B83DD385816C9EF6.gr7.ap-south-1.eks.amazonaws.com') {
+                    withKubeConfig(credentialsId: 'k8s', serverUrl: 'https://B18E12BF81A02624B83DD385816C9EF6.gr7.ap-south-1.eks.amazonaws.com') {
                         sh "kubectl apply -f deployment.yaml"
                         sh "kubectl apply -f service.yaml"
                     }
