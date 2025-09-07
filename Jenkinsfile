@@ -70,7 +70,7 @@ pipeline {
         stage('Deploy to kubernets') {
             steps {
                 script {
-                    withKubeConfig(credentialsId: 'k8s', serverUrl: 'https://B18E12BF81A02624B83DD385816C9EF6.gr7.ap-south-1.eks.amazonaws.com') {
+                    withKubeConfig(clusterName: 'mycluster', credentialsId: 'k8s', serverUrl: 'https://B18E12BF81A02624B83DD385816C9EF6.gr7.ap-south-1.eks.amazonaws.com') {
                         sh "kubectl apply -f deployment.yaml"
                         sh "kubectl apply -f service.yaml"
                     }
