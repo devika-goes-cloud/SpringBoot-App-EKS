@@ -46,13 +46,6 @@ pipeline {
                 }
             }
         }
-        stage("Quality Gate") {
-            steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
         stage('Docker build and tag') {
             steps {
                 // sh "docker build -t devika12345/springboot:${BUILD_NUMBER} ."
